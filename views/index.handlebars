@@ -1,10 +1,34 @@
-<h1>BURGERS!!!</h1>
+<h1 style="text-align: center">BURGERS!!!</h1>
 
-<h2>Burgers that have not been eaten yet!!!</h2>
-
-<ul>
-    {{#each burgers}}
-        {{#unless devoured}}
-        {{/unless}}
-    {{/each}}
-</ul>
+<div class="row">
+    <div class="col-xl-3"></div>
+    <div class="col-xl-3">
+        <ul>
+            {{#each burger}}
+            {{#unless devoured}}
+            <li style="font-weight: bolder">{{burger_name}} <button type="button" data-id="{{id}}" class="btn btn-primary eatButton ml-3">EAT!!!</button></li>
+            {{/unless}}
+            {{/each}}
+        </ul>
+    </div>
+    <div class="col-xl-3">
+        <ul>
+            {{#each burger}}
+            {{#if devoured}}
+            <li style="color: grey">{{burger_name}} <button data-id="{{id}}" class="gone">DELETE</button></li>
+            {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="mx-auto" style="width: 300px">
+        <form>
+            <div class="form-group">
+                <label>Enter a burger you want to eat!</label>
+                <textarea class="form-control" id="textArea" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary createButton">Submit</button>
+        </form>
+    </div>
+</div>
